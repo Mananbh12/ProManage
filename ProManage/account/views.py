@@ -7,10 +7,11 @@ def login(request):
   if request.method == 'POST':
     email = request.POST.get('email','')
     password = request.POST.get('password', '')
+    print('request')
 
     if email and password:
       user = authenticate(request, email=email, password=password)
-
+      print('User :', user)
       if user is not None:
         auth_login(request, user)
         print('User', user)
